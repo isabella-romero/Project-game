@@ -8,18 +8,18 @@ If the user is cannot successfully reach the safezone at the other end of the fi
 
 Stage one 
 
-1. It is done when on the starting page there there is a JS moodles for the user to input their username.
+1. It is done when on the starting page there there is a JS modals for the user to input their username.
     - [ ] using JavaScript create a function that allows the user to input their username
     - [ ] limit amount of characters they can use
     - [ ] if no characters are entered prompt the user with "invalid entry, try again"
     - [ ] create an object that stores the information that the user has entered 
-2. (tailwind instead of css) It is done when there is a css sheet that styles the container, giving it a background, a circle (the user) and squares (objects in the way). 
+4. (tailwind instead of css) It is done when there is a css sheet that styles the container, giving it a background, a circle (the user) and squares (objects in the way). 
    - [ ] create a stylesheet in css that contains the following:
    - [ ] a large container/ box in which the game is limited to that is center of the screen, contains a different color from both the user, and the objects
    - [ ] a circle that is a different color than the background and objects
    - [ ] three squares that are a different color than the background and the user
-3. It is done when the JavaScript allows the user to move the circle in a straight line and left and right in the game container, and there are three objects that move horizontally across the screen.
-5. It is done when there is a header at the top of the game denoting the name of the game and what level the user is on. 
+5. It is done when the JavaScript allows the user to move the circle in a straight line and left and right in the game container, and there are three objects that move horizontally across the screen.
+6. It is done when there is a header at the top of the game denoting the name of the game and what level the user is on. 
 
 Stage two 
 
