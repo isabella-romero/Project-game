@@ -13,20 +13,27 @@ body {
     height: 100vh;
     margin: 0;
 }
-
-h1 {
-    position: absolute;
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1%;
+    background-color: #13293d;
+    color: #fff;
+    position: absolute; top: 0; left: 0; right: 0
     top: 20px;
-    font-size: 24px;
-    color: #333;
+}
+h1 {
+    font-size: 200%;
 }
 
 #game-board {
     position: relative;
-    width: 300px;
-    height: 400px;
+    width: 600px;
+    height: 800px;
     background-color: #2e7d32;  
     border: 5px solid #333;
+    display: flex;
 }
 
 #chicken {
@@ -41,8 +48,8 @@ h1 {
 
 .car {
     position: absolute;
-    width: 50px;
-    height: 30px;
+    width: 100px;
+    height: 70px;
     background-color: red;
     border-radius: 5px;
     animation: moveCars 3s linear infinite;
@@ -54,13 +61,21 @@ h1 {
 }
 
 .car-2 {
-    top: 200px;
+    top: 300px;
     left: -50px;
 }
 
 .car-3 {
-    top: 300px;
+    top: 500px;
     left: -50px;
+}
+footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 2%;
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background-color: #13293d;
+    color: #fff;
 }
 
 @keyframes moveCars {
@@ -78,5 +93,13 @@ h1 {
     }
     to {
         left: -50px;
+    }
+}
+@media screen and (max-width: 768px) {
+    header {
+    flex-direction: column;
+    }
+    main {
+    max-width: 1200px;
     }
 }

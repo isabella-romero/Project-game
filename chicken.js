@@ -60,3 +60,4 @@ function resetGame() {
     chicken.style.left = chickenX + 'px';
     chicken.style.bottom = chickenY + 'px';
 }
+
