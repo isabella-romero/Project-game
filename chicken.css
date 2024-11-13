@@ -21,6 +21,7 @@ header {
     color: #fff;
     position: absolute; top: 0; left: 0; right: 0;
     z-index: 999;
+    padding: 2%;
 }
 h1 {
     font-size: 200%;
@@ -70,7 +71,7 @@ h1 {
 }
 footer {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     padding: 2%;
     position: absolute; bottom: 0; left: 0; right: 0;
     background-color: #13293d;
