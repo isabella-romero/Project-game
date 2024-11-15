@@ -42,24 +42,37 @@ main {
     display: flex;
     margin-bottom: 50px; /* Space for the score-board */
 }
-
+.score-board {
+    text-align: center;
+    padding: 25px;
+    background-color: #fff;
+    border: 3px solid #13293d;
+    color: #13293d;
+    margin: 0 auto;
+    width: 200px;
+}
 #chicken {
     position: absolute;
     bottom: 0;
     left: 60px;
     width: 40px;
     height: 40px;
-    background-color: blueviolet;
     border-radius: 50%;
+}
+#chicken::before{
+    content: "🐓";
 }
 
 .car {
     position: absolute;
     width: 50px;
     height: 35px;
-    background-color: red;
-    border-radius: 5px;
     animation: moveCars 3s linear infinite;
+}
+.car-1::before,
+.car-2::before,
+.car-3::before{
+    content: "🚘";
 }
 
 .car-1 {
@@ -84,15 +97,6 @@ footer {
     background-color: #13293d;
     color: #fff;
 }
-.score-board {
-    text-align: center;
-    padding: 25px;
-    background-color: #fff;
-    border: 3px solid #13293d;
-    color: #13293d;
-    margin: 0 auto;
-    width: 200px;
-}
 
 .player {
     display: inline-block;
@@ -109,6 +113,44 @@ footer {
     color: #2CB3C9;
     font-size: 20px;
 }
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #13293d(0,0,0); /* Fallback color */
+    background-color: #13293d(0,0,0,0.4); /* Black w/ opacity */
+  }
+  /*figure out how to render modal button to be prettier*/ 
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #13293d;
+    padding: 20px;
+    border: 5px solid #fff;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #13293d;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
 /* animation connection to JS*/
 @keyframes moveCars {
     from {
