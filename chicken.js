@@ -4,8 +4,8 @@ const cars = document.querySelectorAll('.car');
 const scoreElement = document.getElementById('score');
 
 // Game variables
-let chickenX = 120;
-let chickenY = 360;
+let chickenX = 130;
+let chickenY = 0;
 const chickenSpeed = 40;
 let score = 0;
 let gameInterval;
@@ -100,7 +100,7 @@ function resetChicken() {
 
 // Reset the game
 function resetGame() {
-    isGameOver = true; // Set game state to over
+    isGameOver = false; // Set game state to over
     clearInterval(gameInterval); // Stop the car movement
     chickenX = 120;
     chickenY = 360;
@@ -110,8 +110,8 @@ function resetGame() {
         car.style.animation = 'none'; // Stop cars
         car.style.left = '-40px'; // Reset car position
     });
-    alert('Game Over! Try again.');
-    startGame(); // Restart the game
+    resetChicken();
+    setTimeout(startGame, 1000);
 }
 
 // Start the game
