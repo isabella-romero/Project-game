@@ -29,8 +29,8 @@ h1 {
 
 #game-board {
     position: relative;
-    width: 600px;
-    height: 800px;
+    width: 300px;
+    height: 400px;
     background-color: #2e7d32;  
     border: 5px solid #333;
     display: flex;
@@ -39,7 +39,7 @@ h1 {
 #chicken {
     position: absolute;
     bottom: 0;
-    left: 120px;
+    left: 60px;
     width: 40px;
     height: 40px;
     background-color: blueviolet;
@@ -48,25 +48,25 @@ h1 {
 
 .car {
     position: absolute;
-    width: 100px;
-    height: 70px;
+    width: 50px;
+    height: 35px;
     background-color: red;
     border-radius: 5px;
     animation: moveCars 3s linear infinite;
 }
 
 .car-1 {
-    top: 100px;
+    top: 50px;
     left: -50px;
 }
 
 .car-2 {
-    top: 300px;
+    top: 150px;
     left: -50px;
 }
 
 .car-3 {
-    top: 500px;
+    top: 250px;
     left: -50px;
 }
 footer {
@@ -95,7 +95,7 @@ footer {
         left: -50px;
     }
 }
-@media screen and (max-width: 768px) {
+/*@media screen and (max-width: 768px) {
     header {
     flex-direction: column;
     }
