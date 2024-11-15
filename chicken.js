@@ -93,8 +93,8 @@ function resetGame() {
         car.style.animation = 'none'; // Stop cars
         car.style.left = '-40px'; // Reset car position
     });
-    alert('Game Over! Try again.');
-    startGame(); // Restart the game
+    resetChicken();
+    setTimeout(startGame, 1000);
 }
 
 // Start the game
@@ -110,7 +110,7 @@ function startGame() {
     }, 1000 / 60); // 60 FPS
 }
 
-// Define the moveCars animation (this should be included in your CSS)
+// Define the moveCars animation 
 document.styleSheets[0].insertRule(`
 @keyframes moveCars {
     0% { left: -40px; }
