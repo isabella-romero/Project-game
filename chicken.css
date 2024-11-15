@@ -13,6 +13,7 @@ body {
     height: 100vh;
     margin: 0;
 }
+
 header {
     display: flex;
     justify-content: space-between;
@@ -23,8 +24,13 @@ header {
     z-index: 999;
     padding: 2%;
 }
+
 h1 {
     font-size: 200%;
+}
+
+main {
+    max-width: 1200px;
 }
 
 #game-board {
@@ -34,6 +40,7 @@ h1 {
     background-color: #2e7d32;  
     border: 5px solid #333;
     display: flex;
+    margin-bottom: 50px; /* Space for the score-board */
 }
 
 #chicken {
@@ -77,6 +84,31 @@ footer {
     background-color: #13293d;
     color: #fff;
 }
+.score-board {
+    text-align: center;
+    padding: 25px;
+    background-color: #fff;
+    border: 3px solid #2CB3C9;
+    color: #2CB3C9;
+    margin: 0 auto;
+    width: 200px;
+}
+
+.player {
+    display: inline-block;
+    padding: 15px;
+}
+
+.player h4 {
+    font-weight: bold;
+}
+
+.score-box {
+    border: 3px solid black;
+    padding: 30px;
+    color: #2CB3C9;
+    font-size: 20px;
+}
 
 @keyframes moveCars {
     from {
@@ -95,7 +127,7 @@ footer {
         left: -50px;
     }
 }
-/*@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
     header {
     flex-direction: column;
     }
