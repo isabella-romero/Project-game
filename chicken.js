@@ -9,9 +9,12 @@ let chickenY = 360;
 const chickenSpeed = 40;
 let score = 0;
 let gameInterval;
+let isGameOver = false; // New variable to track game state
 
 // Chicken movement
 document.addEventListener('keydown', (event) => {
+    if (isGameOver) return; // Prevent movement if game is over
+
     switch (event.key) {
         case 'ArrowUp':
             if (chickenY > 0) chickenY -= chickenSpeed;
@@ -37,10 +40,9 @@ function moveCars() {
     cars.forEach(car => {
         let leftPos = parseInt(window.getComputedStyle(car).left);
         if (leftPos >= 480) {
-            // Reset car to the beginning when it moves off screen
-            car.style.left = '-40px';
+            car.style.left = '-40px'; // Reset car position
         } else {
-            car.style.left = (leftPos + 2) + 'px';
+            car.style.left = (leftPos + 5) + 'px'; // Move car to the right
         }
     });
 }
@@ -63,54 +65,58 @@ function checkCollision() {
     });
 }
 
-// Update score and game logic
-function updateGame() {
-    // Check if the chicken has reached the top of the game board
-    if (chickenY <= 0) {
-        score++; // Increment the score
-        scoreElement.textContent = score; // Update the score display
-        resetChicken(); // Reset chicken position
-    }
-
-    // Always move cars on every game update
-    moveCars();
-}
-
-// Reset chicken position
-function resetChicken() {
-    chickenX = 120;
-    chickenY = 360; // Reset chicken to the starting position
-    chicken.style.left = chickenX + 'px';
-    chicken.style.bottom = chickenY + 'px';
-}
-// Reset the game
-function resetGame() {
-    chickenX = 120;
-    chickenY = 360;
-    score = 0; // Reset the score when the game restarts
-    scoreElement.textContent = score; // Update the score display
-    cars.forEach(car => {
-        car.style.animation = 'none'; // Stop cars
-        car.style.left = '-40px'; // Reset car position
-    });
-    alert('Game Over! Try again.');
-    startGame(); // Restart the game
-}
-
 // Start the game
 function startGame() {
-    // Reset car position and animation
+    isGameOver = false; // Reset game state
     cars.forEach(car => {
         car.style.animation = 'moveCars 3s linear infinite';
     });
 
     gameInterval = setInterval(() => {
-        updateGame();
-        moveCars();
+        if (!isGameOver) {
+            updateGame();
+            moveCars();
+        }
     }, 1000 / 60); // 60 FPS
 }
+// score and game logic
+function updateGame() {
+    if (chickenY <= 0) {
+        score++;
+        scoreElement.textContent = score;
+        resetChicken(); // Reset chicken position after scoring
+    }
 
-// Define the moveCars animation (this should be included in your CSS)
+    moveCars();
+    checkCollision(); // Ensure collision check is called after moving cars
+}
+// Reset chicken position
+function resetChicken() {
+    chickenX = 120;
+    chickenY = 360;
+    chicken.style.left = chickenX + 'px';
+    chicken.style.bottom = chickenY + 'px';
+}
+
+// Reset the game
+function resetGame() {
+    isGameOver = true; // Set game state to over
+    clearInterval(gameInterval); // Stop the car movement
+    chickenX = 120;
+    chickenY = 360;
+    score = 0;
+    scoreElement.textContent = score;
+    cars.forEach(car => {
+        car.style.animation = 'none';
+        car.style.left = '-40px';
+    });
+    
+    setTimeout(() => {
+        alert('Game Over! Try again.');
+        startGame(); // Restart the game after a delay
+    }, 1000); // Delay for 1 second
+}
+// Define the moveCars animation 
 document.styleSheets[0].insertRule(`
 @keyframes moveCars {
     0% { left: -40px; }
@@ -118,4 +124,4 @@ document.styleSheets[0].insertRule(`
 }`, 0);
 
 startGame();
-setInterval(checkCollision, 50);
+
