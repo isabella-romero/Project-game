@@ -120,24 +120,15 @@ function resetGame() {
     score = 0;
     scoreElement.textContent = score;
     cars.forEach(car => {
-        car.style.animation = 'none';
-        car.style.left = '-40px';
+        car.style.animation = 'none'; // Stop cars
+        car.style.left = '-40px'; // Reset car position
     });
     
     setTimeout(() => {
+        alert('Game Over! Try again.');
         startGame(); // Restart the game after a delay
-        resetChicken(); //restart chicken position
     }, 1000); // Delay for 1 second
 }
-
-// Reset chicken position
-function resetChicken() {
-    chickenX = 120;
-    chickenY = 360;
-    chicken.style.left = chickenX + 'px';
-    chicken.style.bottom = chickenY + 'px';
-}
-
 // Define the moveCars animation 
 document.styleSheets[0].insertRule(`
 @keyframes moveCars {
