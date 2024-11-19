@@ -58,9 +58,10 @@ main {
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    font-size: 60px;
 }
 #chicken::before{
-    content: "🐓";
+    content: "🐔";
 }
 
 .car {
@@ -68,7 +69,9 @@ main {
     width: 50px;
     height: 35px;
     animation: moveCars 3s linear infinite;
+    font-size: 60px
 }
+
 .car-1::before,
 .car-2::before,
 .car-3::before{
