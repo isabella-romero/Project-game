@@ -14,19 +14,19 @@ var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
-  modal.style.display = "block";
+modal.style.display = "block";
 }
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
-  modal.style.display = "none";
+modal.style.display = "none";
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-  if (event.target == modal) {
+if (event.target == modal) {
     modal.style.display = "none";
-  }
+}
 }
 // Game variables
 let chickenX = 130;
@@ -80,7 +80,7 @@ function checkCollision() {
             chickenRect.top < carRect.bottom &&
             chickenRect.bottom > carRect.top
         ) {
-            alert('Game Over! You were hit by a car.');
+            alert('💥Game Over! You were hit by a car.💥');
             resetGame();
         }
     });
@@ -125,7 +125,6 @@ function resetGame() {
     });
     
     setTimeout(() => {
-        alert('Game Over! Try again.');
         startGame(); // Restart the game after a delay
     }, 1000); // Delay for 1 second
 }
