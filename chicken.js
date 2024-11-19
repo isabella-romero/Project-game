@@ -125,7 +125,6 @@ function resetGame() {
     });
     
     setTimeout(() => {
-        alert('Game Over! Try again.');
         startGame(); // Restart the game after a delay
     }, 1000); // Delay for 1 second
 }
