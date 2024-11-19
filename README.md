@@ -31,7 +31,9 @@ Stage two
 1. it is done when there is a modal explaining how the game works, and the user can read the instructions.
    - [ ] the user can click anywhere outside the modal and close it
 3. it is done when there is an avatar that represents the user.
-4. it is done when there are cars that represent the obstacles on level one.
+    - [ ] A user (the 🐔) 
+5. it is done when there are cars that represent the obstacles. 
+    - [ ] three 🚘 that go across the screen
 
 Stage Three 
 
@@ -40,11 +42,7 @@ Stage Three
 3. it is done when there is a scoreboard that calulates the score each time the user crosses the finish line.
 4. it is done when the scoreboard resets when the user loses. 
 
-
-
-Bonus: 
-     - [ ] three 🚘 that go across the screen
-     - [ ] A user (the 🐔) 
+     
 
 
 
