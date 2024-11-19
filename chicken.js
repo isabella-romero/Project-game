@@ -35,15 +35,24 @@ const chickenSpeed = 40;
 let score = 0;
 let gameInterval;
 let isGameOver = false; // New variable to track game state
+let hasScored = false;
+
+// Chicken movement
 document.addEventListener('keydown', (event) => {
     if (isGameOver) return; // Prevent movement if game is over
 
     switch (event.key) {
         case 'ArrowUp':
-            if (chickenY > 0) chickenY -= chickenSpeed; // Allow movement upwards
+            if (chickenY > 0) {
+                chickenY -= chickenSpeed;
+                hasScored = false;
+            }
             break;
         case 'ArrowDown':
-            if (chickenY < 360) chickenY += chickenSpeed; // Allow movement downwards
+            if (chickenY < 360) {
+                chickenY += chickenSpeed;
+                hasScored = false;
+            }
             break;
         case 'ArrowLeft':
             if (chickenX > 0) chickenX -= chickenSpeed; // Allow movement left
@@ -100,23 +109,27 @@ function startGame() {
 }
 function updateGame() {
     if (!isGameOver) {
-        if (chickenY <= 0) { // Check if the chicken has crossed the finish line
-            score++;
-            scoreElement.textContent = score;
-            alert(`Congratulations! Your score is now: ${score}`); // Provide feedback
-            // Do not call resetGame here; instead, allow the player to continue
-        } else {
-            checkCollision(); // Ensure collision check is called after moving cars
-        }
+    if (chickenY <= 0 && !hasScored) {
+        score++;
+        scoreElement.textContent = score;
+        hasScored = true; // Reset chicken position after scoring
+        chickenY = 360;
+        chicken.style.bottom = chickenY + 'px';
     }
+}   
+    moveCars();
+    checkCollision(); // Ensure collision check is called after moving cars
 }
 
 function resetGame() {
     isGameOver = true; // Set game state to over
     clearInterval(gameInterval); // Stop the car movement
-    chickenX = 120;
+    chickenX = 130;
     chickenY = 360;
-    // Do not reset score here
+    score = 0; //reset score
+    scoreElement.textContent = score;
+    chicken.style.left = chickenX + 'px';
+    chicken.style.bottom = chickenY + 'px';
     cars.forEach(car => {
         car.style.animation = 'none'; // Stop cars
         car.style.left = '-40px'; // Reset car position
