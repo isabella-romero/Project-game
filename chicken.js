@@ -112,6 +112,7 @@ function updateGame() {
     if (chickenY <= 0 && !hasScored) {
         score++;
         scoreElement.textContent = score;
+        alert("Yay! You Scored!"); // Alert added here
         hasScored = true; // Reset chicken position after scoring
         chickenY = 360;
         chicken.style.bottom = chickenY + 'px';
