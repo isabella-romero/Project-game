@@ -146,4 +146,3 @@ document.styleSheets[0].insertRule(`
 }`, 0);
 
 startGame();
-
